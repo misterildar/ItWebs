@@ -1,0 +1,12 @@
+@use '@/styles/variables' as *;
+
+.products {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+.error {
+	color: $red;
+}

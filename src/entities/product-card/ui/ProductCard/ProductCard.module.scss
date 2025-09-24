@@ -1,0 +1,62 @@
+@use '@/styles/variables' as *;
+
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
+	border-radius: 15px;
+	max-width: 320px;
+	width: 100%;
+	background-color: $gray-300;
+	gap: 30px;
+	box-shadow: 0 0 5px $white;
+}
+
+.link {
+	display: flex;
+	flex-direction: column;
+	color: $black;
+	gap: 20px;
+	text-decoration: none;
+	color: $black;
+}
+
+.imageWrapper {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.image {
+	display: flex;
+	border-radius: 15px;
+	object-fit: contain;
+}
+
+@mixin baseTitle {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.title {
+	@include baseTitle;
+}
+
+.description {
+	@include baseTitle;
+	-webkit-line-clamp: 10;
+	line-clamp: 10;
+}
+
+.price {
+	@include baseTitle;
+	-webkit-line-clamp: 1;
+	line-clamp: 1;
+}
