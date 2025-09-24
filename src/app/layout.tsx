@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ScrollToTopOnRouteChange } from '@/shared/lib';
 import { Header } from '@/widgets/header';
+import { ModalWidget } from '@/widgets/modal';
 
 import '@/shared/styles/globals.scss';
 
@@ -34,6 +35,7 @@ export default function RootLayout({
 				<ScrollToTopOnRouteChange />
 				<Header />
 				<main>{children}</main>
+				<ModalWidget />
 			</body>
 		</html>
 	);

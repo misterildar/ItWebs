@@ -1,14 +1,23 @@
-import { useEffect, useRef } from 'react';
+import { MouseEvent, ReactNode, useEffect, useRef } from 'react';
+import clsx from 'clsx';
 
 import styles from './Modal.module.scss';
 
 interface ModalProps {
 	isOpen: boolean;
 	onClose: () => void;
-	children: React.ReactNode;
+	children: ReactNode;
+	className?: string;
+	showCloseButton?: boolean;
 }
 
-export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
+export const Modal = ({
+	isOpen,
+	onClose,
+	children,
+	className,
+	showCloseButton = true,
+}: ModalProps) => {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 
 	useEffect(() => {
@@ -20,7 +29,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 		} else {
 			if (dialog.open) dialog.close();
 		}
-	}, [isOpen, onClose]);
+	}, [isOpen]);
 
 	useEffect(() => {
 		if (isOpen) {
@@ -34,20 +43,31 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
 		};
 	}, [isOpen]);
 
+	const modalClasses = clsx(styles.modal, className);
+
+	const handleBackdropClick = (event: MouseEvent<HTMLDialogElement>) => {
+		if (event.target === dialogRef.current) {
+			onClose();
+		}
+	};
+
 	return (
 		<dialog
 			ref={dialogRef}
-			className={styles.modal}
+			className={modalClasses}
 			onCancel={onClose}
+			onClick={handleBackdropClick}
 		>
-			<button
-				type='button'
-				className={styles.close}
-				onClick={onClose}
-				aria-label='Закрыть модальное окно'
-			>
-				&times;
-			</button>
+			{showCloseButton && (
+				<button
+					type='button'
+					className={styles.close}
+					onClick={onClose}
+					aria-label='Закрыть модальное окно'
+				>
+					&times;
+				</button>
+			)}
 			{children}
 		</dialog>
 	);
