@@ -2,6 +2,7 @@
 
 :root {
 	--background: #{$gray-900};
+	--header-height: 118px;
 }
 
 @supports (-webkit-overlay-scrollbars: 0) {
@@ -29,8 +30,11 @@ body {
 	font-family: var(--font-inter), sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	margin: 0;
-	padding: 0;
+	background-image: url('/background.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
 }
 
 .body-no-scroll {
@@ -39,7 +43,7 @@ body {
 
 main {
 	max-width: 1442px;
-	margin: 0 auto;
+	margin: var(--header-height) auto 0 auto;
 	padding: 50px 0 150px;
 }
 

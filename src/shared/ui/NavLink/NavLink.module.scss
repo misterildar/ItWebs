@@ -1,0 +1,21 @@
+@use '@/shared/styles/variables' as *;
+
+.link {
+	color: $white;
+	text-decoration: none;
+	font-family: var(--font-inter);
+	font-size: 48px;
+	font-weight: 500;
+	transition: all 0.3s ease;
+	cursor: pointer;
+
+	&:hover,
+	&:active {
+		color: $blue;
+	}
+}
+
+.link_active {
+	@extend .link;
+	color: $blue;
+}
