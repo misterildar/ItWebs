@@ -1,0 +1,28 @@
+.checkbox {
+	width: 40px;
+	height: 40px;
+	border: 2px solid $gray-300;
+	border-radius: 4px;
+	background: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: all 0.3s ease;
+	color: $green;
+	margin-right: 16px;
+
+	&:hover {
+		border-color: $green;
+	}
+
+	&.checked {
+		background: transparent;
+		border-color: $green;
+	}
+
+	@media (max-width: 500px) {
+		width: 30px;
+		height: 30px;
+	}
+}

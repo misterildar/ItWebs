@@ -1,0 +1,9 @@
+.form {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 24px;
+
+	@media (max-width: 425px) {
+		grid-template-columns: 1fr;
+	}
+}

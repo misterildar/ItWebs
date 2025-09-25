@@ -1,0 +1,58 @@
+.container {
+	max-width: 800px;
+	width: 100%;
+	margin: auto;
+	position: relative;
+	z-index: 1;
+}
+
+.todoapp {
+	border: 1px solid #666;
+	background: white;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 24px 50px 0 rgba(0, 0, 0, 0.1);
+	padding: 24px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 16px;
+		left: 16px;
+		right: 16px;
+		bottom: -16px;
+		background: #f5f5f5;
+		border-radius: 8px;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 24px 40px 0 rgba(0, 0, 0, 0.1);
+		z-index: -1;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 30px;
+		left: 30px;
+		right: 30px;
+		bottom: -30px;
+		background: #f5f5f5;
+		border-radius: 8px;
+		box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1), 0 30px 60px 0 rgba(0, 0, 0, 0.1);
+		z-index: -2;
+	}
+}
+
+.title {
+	font-size: 100px;
+	font-weight: 200;
+	color: rgba(175, 47, 47, 0.15);
+	text-align: center;
+	margin: 0;
+	line-height: 1;
+
+	@media (max-width: 768px) {
+		font-size: 80px;
+	}
+}
