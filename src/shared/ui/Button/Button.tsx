@@ -8,6 +8,7 @@ interface ButtonProps {
 	loading?: boolean;
 	className?: string;
 	type?: 'button' | 'reset' | 'submit';
+	variant?: 'default' | 'primary';
 }
 
 export const Button = ({
@@ -17,15 +18,17 @@ export const Button = ({
 	loading,
 	className,
 	type = 'button',
+	variant = 'default',
 }: ButtonProps) => {
 	const disabledClass = disabled ? styles.disabled : '';
+	const variantClass = variant === 'primary' ? styles.primary : '';
 
 	return (
 		<button
 			type={type}
 			onClick={onClick}
 			disabled={disabled}
-			className={clsx(className, disabledClass, styles.button)}
+			className={clsx(disabledClass, styles.button, variantClass, className)}
 		>
 			{loading ? (
 				<div

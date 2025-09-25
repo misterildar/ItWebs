@@ -4,7 +4,7 @@ import { useModalStore } from '@/entities/modal/store';
 import { Modal } from '@/shared/ui/';
 
 export const ModalWidget = () => {
-	const { isOpen, content, closeModal, showCloseButton } = useModalStore();
+	const { isOpen, content, closeModal } = useModalStore();
 
 	if (!isOpen || !content) {
 		return null;
@@ -14,7 +14,6 @@ export const ModalWidget = () => {
 		<Modal
 			isOpen={isOpen}
 			onClose={closeModal}
-			showCloseButton={showCloseButton}
 		>
 			{content}
 		</Modal>

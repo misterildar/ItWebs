@@ -66,7 +66,7 @@ export const FormModal = () => {
 	};
 
 	return (
-		<div className={styles.formModal}>
+		<>
 			<h2 className={styles.title}>Создать новый пост</h2>
 
 			<form
@@ -128,6 +128,6 @@ export const FormModal = () => {
 					/>
 				</div>
 			</form>
-		</div>
+		</>
 	);
 };

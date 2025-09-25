@@ -1,30 +1,22 @@
 import { ReactNode } from 'react';
 import { create } from 'zustand';
 
-interface OpenModalOptions {
-	showCloseButton?: boolean;
-}
-
 interface ModalState {
 	isOpen: boolean;
 	content: ReactNode | null;
-	showCloseButton: boolean;
-	openModal: (content: ReactNode, options?: OpenModalOptions) => void;
+	openModal: (content: ReactNode) => void;
 	closeModal: () => void;
 }
 
 export const useModalStore = create<ModalState>((set) => ({
 	isOpen: false,
 	content: null,
-	showCloseButton: true,
-	openModal: (content, options = {}) => {
-		const { showCloseButton = true } = options;
-		set({ isOpen: true, content, showCloseButton });
+	openModal: (content) => {
+		set({ isOpen: true, content });
 	},
 	closeModal: () =>
 		set({
 			isOpen: false,
 			content: null,
-			showCloseButton: true,
 		}),
 }));
