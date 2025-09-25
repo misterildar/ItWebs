@@ -32,5 +32,12 @@ const createApiClient = (baseURL: string): AxiosInstance => {
 	return client;
 };
 
-export const storeApi = createApiClient('http://o-complex.com:1337');
+const getApiBaseUrl = () => {
+	if (typeof window !== 'undefined') {
+		return '/api/proxy';
+	}
+	return 'http://o-complex.com:1337';
+};
+
+export const storeApi = createApiClient(getApiBaseUrl());
 export const jsonplaceholderApi = createApiClient('https://jsonplaceholder.typicode.com');
