@@ -41,12 +41,13 @@ export const AddTodoForm: FC = () => {
 				onChange={handleInputChange}
 				placeholder='Что нужно сделать?'
 				onKeyDown={handleKeyDown}
+				variant='light'
 				autoFocus
 			/>
 			<Button
 				type='submit'
+				variant='primary'
 				disabled={!text.trim()}
-				className={styles.button}
 				text='Добавить'
 			/>
 		</form>

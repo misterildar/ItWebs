@@ -224,4 +224,9 @@
 	justify-content: flex-end;
 	margin-top: 24px;
 	position: relative;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 12px;
+	}
 }

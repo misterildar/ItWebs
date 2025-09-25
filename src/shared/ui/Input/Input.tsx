@@ -8,10 +8,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	placeholder?: string;
 	tagType?: string;
 	className?: string;
+	variant?: 'dark' | 'light';
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ tagType = 'input', placeholder, className, onChange, ...props }, ref) => {
+	({ tagType = 'input', placeholder, className, onChange, variant = 'dark', ...props }, ref) => {
 		return (
 			<input
 				ref={ref}
@@ -19,7 +20,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 				placeholder={placeholder}
 				onChange={onChange}
 				{...props}
-				className={clsx(styles.input, className)}
+				className={clsx(styles.input, styles[variant], className)}
 			/>
 		);
 	}

@@ -13,6 +13,10 @@
 	&:active {
 		color: $blue;
 	}
+
+	@media (max-width: 1280px) {
+		font-size: 28px;
+	}
 }
 
 .link_active {

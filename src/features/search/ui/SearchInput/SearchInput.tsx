@@ -40,7 +40,7 @@ export const SearchInput: FC = () => {
 				placeholder='Поиск задач...'
 				value={localQuery}
 				onChange={handleInputChange}
-				className={styles.searchInput}
+				variant='light'
 			/>
 			{localQuery && (
 				<button

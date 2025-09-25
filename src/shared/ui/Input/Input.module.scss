@@ -2,9 +2,7 @@
 
 .input {
 	width: 100%;
-	background-color: $gray-950;
 	border: none;
-	color: $gray-100;
 	padding: 10px;
 	border-radius: 15px;
 	font-weight: 400;
@@ -19,5 +17,18 @@
 		&::placeholder {
 			opacity: 0;
 		}
+	}
+}
+
+.dark {
+	background-color: $gray-950;
+	color: $gray-100;
+}
+
+.light {
+	border: 1px solid $gray-300;
+
+	&:focus {
+		border-color: $blue;
 	}
 }

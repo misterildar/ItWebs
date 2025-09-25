@@ -7,6 +7,7 @@ interface ButtonProps {
 	disabled?: boolean;
 	loading?: boolean;
 	className?: string;
+	size?: 'small' | 'medium' | 'large';
 	type?: 'button' | 'reset' | 'submit';
 	variant?: 'default' | 'primary';
 }
@@ -17,6 +18,7 @@ export const Button = ({
 	disabled,
 	loading,
 	className,
+	size = 'medium',
 	type = 'button',
 	variant = 'default',
 }: ButtonProps) => {
@@ -28,7 +30,7 @@ export const Button = ({
 			type={type}
 			onClick={onClick}
 			disabled={disabled}
-			className={clsx(disabledClass, styles.button, variantClass, className)}
+			className={clsx(disabledClass, styles.button, variantClass, styles[size], className)}
 		>
 			{loading ? (
 				<div
@@ -36,7 +38,7 @@ export const Button = ({
 					aria-label='loading'
 				/>
 			) : (
-				<p>{text}</p>
+				<p className={styles[size]}>{text}</p>
 			)}
 		</button>
 	);

@@ -15,12 +15,16 @@
 	&::backdrop {
 		background-color: rgba($black, 0.5);
 	}
+
+	@media (max-width: 768px) {
+		padding: 50px 30px;
+	}
 }
 
 .close {
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	top: 10px;
+	right: 10px;
 	width: 52px;
 	height: 52px;
 	background: none;

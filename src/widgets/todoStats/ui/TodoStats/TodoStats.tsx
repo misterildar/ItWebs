@@ -30,6 +30,7 @@ export const TodoStats: FC = () => {
 						key={filter.key}
 						onClick={() => setFilter(filter.key)}
 						text={filter.label}
+						size='small'
 						className={clsx(styles.filterButton, {
 							[styles.active]: currentFilter === filter.key,
 						})}
@@ -38,6 +39,7 @@ export const TodoStats: FC = () => {
 			</div>
 			<div className={styles.actions}>
 				<Button
+					size='small'
 					onClick={clearCompleted}
 					text='Очистить завершенные'
 					disabled={stats.completed === 0}

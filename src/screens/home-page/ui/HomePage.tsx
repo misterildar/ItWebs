@@ -14,7 +14,7 @@ export const HomePage = () => {
 	};
 
 	return (
-		<div className={styles.section}>
+		<section className={styles.section}>
 			<h1 className={styles.text}>Демонстрация работы с API</h1>
 			<p className={styles.text}>
 				Нажмите кнопку ниже, чтобы открыть модальное окно с формой для создания поста:
@@ -24,6 +24,6 @@ export const HomePage = () => {
 				onClick={handleOpenFormModal}
 				variant='primary'
 			/>
-		</div>
+		</section>
 	);
 };
