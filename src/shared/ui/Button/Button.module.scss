@@ -1,22 +1,18 @@
 @use '@/styles/variables' as *;
 
 .button {
+	@include button-base;
 	background-color: $gray-950;
 	color: $gray-100;
-	padding: 15px;
-	border-radius: 15px;
 	width: 100%;
-	border: none;
-	cursor: pointer;
-	transition: background-color 0.2s ease;
 	text-wrap: nowrap;
 }
 
 .primary {
+	@include button-base;
 	background-color: $blue;
 	color: $white;
 	padding: 15px 32px;
-	border-radius: 15px;
 	width: auto;
 	font-size: 16px;
 	font-weight: 600;

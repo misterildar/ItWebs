@@ -58,24 +58,11 @@ button {
 }
 
 p {
-	font-weight: 400;
-	font-size: 24px;
-	line-height: 100%;
-	letter-spacing: 0%;
-	font-family: var(--font-inter);
+	@include text-base;
 }
 
 dialog.modal {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	border: none;
-	border-radius: 8px;
-	padding: 20px;
-	box-shadow: 0 4px 16px #{$black-25};
-	max-width: 500px;
-	width: 90%;
+	@include modal-base;
 }
 
 .highlight {

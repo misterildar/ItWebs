@@ -14,3 +14,49 @@ $red: #ff0000;
 $green: #28a745;
 $blue: #007bff;
 $dark-blue: #0056b3;
+
+@mixin button-base {
+	padding: 15px;
+	border-radius: 15px;
+	font-family: var(--font-inter);
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+@mixin input-base {
+	padding: 10px;
+	border-radius: 15px;
+	font-family: var(--font-inter);
+	border: none;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: 0%;
+}
+
+@mixin text-base {
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 100%;
+	letter-spacing: 0%;
+	font-family: var(--font-inter);
+}
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin modal-base {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: none;
+	border-radius: 6px;
+	padding: 20px;
+	box-shadow: 0 4px 16px $black-25;
+	max-width: 500px;
+	width: 90%;
+}

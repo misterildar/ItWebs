@@ -1,7 +1,7 @@
 @use '@/styles/variables' as *;
 
 .actions {
-	display: flex;
+	@include flex-center;
 	gap: 12px;
 	justify-content: flex-end;
 	margin-top: 24px;
