@@ -1,10 +1,10 @@
 'use client';
 
-import { type FC } from 'react';
-import { TodoItem, useFilteredTodos, useTodoActions, useSearchQuery } from '@/entities/todo';
+import { TodoItem } from '@/shared/ui';
+import { useFilteredTodos, useTodoActions, useSearchQuery } from '@/entities/todo';
 import styles from './TodoList.module.scss';
 
-export const TodoList: FC = () => {
+export const TodoList = () => {
 	const todos = useFilteredTodos();
 	const searchQuery = useSearchQuery();
 	const { toggleTodo, removeTodo } = useTodoActions();
@@ -40,6 +40,7 @@ export const TodoList: FC = () => {
 						todo={todo}
 						onToggle={toggleTodo}
 						onRemove={removeTodo}
+						searchQuery={searchQuery}
 					/>
 				))}
 			</div>

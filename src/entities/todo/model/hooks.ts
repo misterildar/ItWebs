@@ -70,18 +70,18 @@ export const useSearchQuery = () => {
 
 export const useTodoActions = () => {
 	const addTodo = useTodoStore((state) => state.addTodo);
+	const setFilter = useTodoStore((state) => state.setFilter);
 	const removeTodo = useTodoStore((state) => state.removeTodo);
 	const toggleTodo = useTodoStore((state) => state.toggleTodo);
 	const clearCompleted = useTodoStore((state) => state.clearCompleted);
-	const setFilter = useTodoStore((state) => state.setFilter);
 	const setSearchQuery = useTodoStore((state) => state.setSearchQuery);
 
 	return {
 		addTodo,
+		setFilter,
 		removeTodo,
 		toggleTodo,
 		clearCompleted,
-		setFilter,
 		setSearchQuery,
 	};
 };

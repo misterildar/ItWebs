@@ -1,17 +1,13 @@
 'use client';
 
-import { type FC } from 'react';
 import clsx from 'clsx';
 
 import { HighlightedText } from '@/shared/ui';
-import { useSearchQuery } from '../../model/hooks';
-import type { TodoItemProps } from '../../model/types';
+import type { TodoItemProps } from '@/entities/todo/model/types';
 
 import styles from './TodoItem.module.scss';
 
-export const TodoItem: FC<TodoItemProps> = ({ todo, onToggle, onRemove }) => {
-	const searchQuery = useSearchQuery();
-
+export const TodoItem = ({ todo, onToggle, onRemove, searchQuery }: TodoItemProps) => {
 	const handleToggle = () => {
 		onToggle(todo.id);
 	};

@@ -6,9 +6,8 @@ export const getProducts = (params: ProductRequestParams, signal?: AbortSignal) 
 	return httpClient<ProductsResponse>('get', '/products', { params, signal });
 };
 
-
 export const fetchProductDetails = (id: number) => {
-	// Иметирую получение данных с сервера по id
+	// Иметирую получение данных с сервера по id так как нет отдельного эндпоинта для получения детальной информации о товаре по его id
 	return {
 		id: id,
 		image_url: '/placeholder.png',

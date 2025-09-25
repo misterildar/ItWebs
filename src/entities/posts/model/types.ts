@@ -1,4 +1,3 @@
-// Доменные типы для постов
 export interface Post {
 	id: number;
 	title: string;

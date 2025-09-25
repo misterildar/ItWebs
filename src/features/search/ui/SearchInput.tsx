@@ -1,12 +1,12 @@
 'use client';
 
-import { type FC, type FormEvent, useState, useEffect } from 'react';
+import { type FormEvent, useState, useEffect } from 'react';
 import { Input } from '@/shared/ui';
 import { useTodoActions, useSearchQuery } from '@/entities/todo';
 
 import styles from './SearchInput.module.scss';
 
-export const SearchInput: FC = () => {
+export const SearchInput = () => {
 	const [localQuery, setLocalQuery] = useState('');
 
 	const { setSearchQuery } = useTodoActions();

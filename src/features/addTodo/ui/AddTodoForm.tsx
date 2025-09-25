@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FC, type FormEvent, type KeyboardEvent } from 'react';
+import { useState, type FormEvent, type KeyboardEvent } from 'react';
 
 import { Input } from '@/shared/ui';
 import { Button } from '@/shared/ui';
@@ -8,7 +8,7 @@ import { useTodoActions } from '@/entities/todo';
 
 import styles from './AddTodoForm.module.scss';
 
-export const AddTodoForm: FC = () => {
+export const AddTodoForm = () => {
 	const [text, setText] = useState('');
 
 	const { addTodo } = useTodoActions();

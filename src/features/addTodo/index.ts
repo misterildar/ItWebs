@@ -1,1 +1,1 @@
-export { AddTodoForm } from './ui/AddTodoForm/AddTodoForm';
+export { AddTodoForm } from './ui/AddTodoForm';

@@ -1,12 +1,10 @@
-import { type FC } from 'react';
-
 interface HighlightedTextProps {
 	text: string;
 	highlight: string;
 	className?: string;
 }
 
-export const HighlightedText: FC<HighlightedTextProps> = ({ text, highlight, className = '' }) => {
+export const HighlightedText = ({ text, highlight, className = '' }: HighlightedTextProps) => {
 	if (!highlight || !highlight.trim()) {
 		return <span className={className}>{text}</span>;
 	}

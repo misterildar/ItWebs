@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { IMaskInput } from 'react-imask';
-import React, { forwardRef, Ref } from 'react';
+import { forwardRef, Ref } from 'react';
 
 import { Input } from '@/shared/ui';
+import { IMaskInput } from 'react-imask';
 import { InputMaskProps } from '../../model/types';
 
 import inputStyles from '@/shared/ui/Input/Input.module.scss';

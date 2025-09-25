@@ -1,6 +1,5 @@
 'use client';
 
-import { type FC } from 'react';
 import clsx from 'clsx';
 import { useTodoActions } from '@/entities/todo';
 
@@ -12,7 +11,7 @@ interface ToggleTodoButtonProps {
 	className?: string;
 }
 
-export const ToggleTodoButton: FC<ToggleTodoButtonProps> = ({ id, completed, className = '' }) => {
+export const ToggleTodoButton = ({ id, completed, className = '' }: ToggleTodoButtonProps) => {
 	const { toggleTodo } = useTodoActions();
 
 	const handleToggle = () => {
