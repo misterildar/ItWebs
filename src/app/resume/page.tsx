@@ -1,3 +1,5 @@
+import { ResumeWidget } from '@/widgets/resume';
+
 export default function ResumePage() {
-	return <h1>Resume</h1>;
+	return <ResumeWidget />;
 }

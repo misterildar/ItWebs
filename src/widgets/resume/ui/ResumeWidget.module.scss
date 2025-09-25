@@ -1,0 +1,50 @@
+@use '@/styles/variables' as *;
+
+.section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 24px;
+
+	@media (max-width: 768px) {
+		padding: 16px 0;
+	}
+}
+
+.container {
+	max-width: 1140px;
+	width: 100%;
+	background: $gray-950;
+	border-radius: 20px;
+	box-shadow: 0 8px 32px $black-25;
+	padding: 32px 24px 20px;
+	color: $gray-100;
+
+	@media (max-width: 768px) {
+		padding: 16px 16px 12px;
+		border-radius: 16px;
+		margin: 0 16px;
+	}
+}
+
+.wrapper {
+	margin-top: 2rem;
+
+	@media (max-width: 768px) {
+		margin-top: 1.5rem;
+	}
+}
+
+.sectionTitle {
+	color: $white;
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin: 0 0 1rem 0;
+	padding-bottom: 8px;
+	border-bottom: 2px solid $blue;
+
+	@media (max-width: 768px) {
+		font-size: 1.3rem;
+		margin-bottom: 0.8rem;
+	}
+}
