@@ -6,6 +6,10 @@
 	text-align: center;
 }
 
+.container {
+	width: 100%;
+}
+
 .form {
 	display: flex;
 	flex-direction: column;
@@ -25,11 +29,172 @@
 	color: $gray-950;
 }
 
-.fileInfo {
-	margin: 8px 0 0 0;
-	font-size: 14px;
+.fileUploadArea {
+	border: 2px dashed $gray-300;
+	border-radius: 8px;
+	padding: 24px;
+	text-align: center;
+	background-color: $white;
+	transition: all 0.3s ease;
+	cursor: pointer;
+	position: relative;
+	min-height: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:hover {
+		border-color: $blue;
+		background-color: rgba($blue, 0.05);
+	}
+
+	&.dragOver {
+		border-color: $blue;
+		background-color: rgba($blue, 0.1);
+		transform: scale(1.02);
+		box-shadow: 0 0 20px rgba($blue, 0.3);
+
+		.uploadIcon {
+			animation: bounce 0.6s ease;
+		}
+	}
+}
+
+.fileUploadContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px;
+}
+
+.uploadIcon {
+	font-size: 32px;
+	opacity: 0.6;
+	transition: all 0.3s ease;
+	animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
+}
+
+@keyframes bounce {
+	0%,
+	20%,
+	50%,
+	80%,
+	100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-10px);
+	}
+	60% {
+		transform: translateY(-5px);
+	}
+}
+
+.uploadText {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+}
+
+.uploadMainText {
+	font-size: 16px;
 	color: $gray-950;
-	font-style: italic;
+	font-weight: 500;
+}
+
+.uploadButton {
+	color: $blue;
+	text-decoration: underline;
+	cursor: pointer;
+	font-weight: 500;
+	transition: color 0.2s ease;
+
+	&:hover {
+		color: $dark-blue;
+	}
+}
+
+.uploadHint {
+	font-size: 12px;
+	color: $gray-700;
+	margin-top: 4px;
+}
+
+.hiddenInput {
+	position: absolute;
+	opacity: 0;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+}
+
+.fileInfo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: rgba($blue, 0.1);
+	border: 1px solid rgba($blue, 0.2);
+	border-radius: 6px;
+	padding: 12px;
+	margin-top: 12px;
+	animation: slideIn 0.3s ease;
+}
+
+.fileDetails {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.fileName {
+	font-weight: 500;
+	color: $gray-950;
+	font-size: 14px;
+}
+
+.fileSize {
+	font-size: 12px;
+	color: $gray-700;
+}
+
+.removeFile {
+	background: none;
+	border: none;
+	color: $gray-700;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 4px;
+	border-radius: 4px;
+	transition: all 0.2s ease;
+
+	&:hover {
+		background-color: rgba($red, 0.1);
+		color: $red;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .error {
@@ -47,6 +212,10 @@
 	font-size: 14px;
 	text-align: center;
 	color: $blue;
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	right: 0;
 }
 
 .actions {
@@ -54,41 +223,5 @@
 	gap: 12px;
 	justify-content: flex-end;
 	margin-top: 24px;
-}
-
-.cancelButton {
-	padding: 12px 24px;
-	background-color: $gray-900;
-	color: $white;
-	border: none;
-	border-radius: 6px;
-	cursor: pointer;
-	font-size: 14px;
-	font-weight: 500;
-	transition: background-color 0.2s ease;
-
-	&:hover:not(:disabled) {
-		background-color: $gray-950;
-	}
-}
-
-.submitButton {
-	padding: 12px 24px;
-	background-color: $blue;
-	color: $white;
-	border: none;
-	border-radius: 6px;
-	cursor: pointer;
-	font-size: 14px;
-	font-weight: 500;
-	transition: background-color 0.2s ease;
-
-	&:hover:not(:disabled) {
-		background-color: $dark-blue;
-	}
-
-	&:disabled {
-		background-color: $gray-950;
-		cursor: not-allowed;
-	}
+	position: relative;
 }

@@ -9,13 +9,14 @@
 	border: none;
 	cursor: pointer;
 	transition: background-color 0.2s ease;
+	text-wrap: nowrap;
 }
 
 .primary {
 	background-color: $blue;
 	color: $white;
 	padding: 15px 32px;
-	border-radius: 8px;
+	border-radius: 15px;
 	width: auto;
 	font-size: 16px;
 	font-weight: 600;

@@ -31,9 +31,30 @@ export const FormModal = () => {
 
 	const watchedFile = watch('file');
 
+	const [isDragOver, setIsDragOver] = useState(false);
+
 	const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const file = e.target.files?.[0] || undefined;
 		setValue('file', file);
+	};
+
+	const handleDragOver = (e: React.DragEvent) => {
+		e.preventDefault();
+		setIsDragOver(true);
+	};
+
+	const handleDragLeave = (e: React.DragEvent) => {
+		e.preventDefault();
+		setIsDragOver(false);
+	};
+
+	const handleDrop = (e: React.DragEvent) => {
+		e.preventDefault();
+		setIsDragOver(false);
+		const file = e.dataTransfer.files[0];
+		if (file) {
+			setValue('file', file);
+		}
 	};
 
 	const onSubmit = async (data: FormData) => {
@@ -66,7 +87,7 @@ export const FormModal = () => {
 	};
 
 	return (
-		<>
+		<div className={styles.container}>
 			<h2 className={styles.title}>Создать новый пост</h2>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
@@ -95,36 +116,69 @@ export const FormModal = () => {
 					>
 						Прикрепить файл:
 					</label>
-					<Input
-						id='file'
-						type='file'
-						onChange={handleFileChange}
-					/>
+					<div
+						className={`${styles.fileUploadArea} ${isDragOver ? styles.dragOver : ''}`}
+						onDragOver={handleDragOver}
+						onDragLeave={handleDragLeave}
+						onDrop={handleDrop}
+					>
+						<div className={styles.fileUploadContent}>
+							<div className={styles.uploadIcon}>{watchedFile ? '✅' : '📁'}</div>
+							<div className={styles.uploadText}>
+								<span className={styles.uploadMainText}>
+									{watchedFile ? 'Файл выбран' : 'Перетащите файл сюда или'}
+								</span>
+								<label
+									htmlFor='file'
+									className={styles.uploadButton}
+								>
+									выберите файл
+								</label>
+							</div>
+							<div className={styles.uploadHint}>
+								Поддерживаются: изображения, документы, архивы
+							</div>
+						</div>
+						<Input
+							id='file'
+							type='file'
+							onChange={handleFileChange}
+							className={styles.hiddenInput}
+						/>
+					</div>
 					{watchedFile && (
-						<p className={styles.fileInfo}>
-							Выбран файл: {watchedFile.name} ({(watchedFile.size / 1024).toFixed(1)} KB)
-						</p>
+						<div className={styles.fileInfo}>
+							<div className={styles.fileDetails}>
+								<span className={styles.fileName}>{watchedFile.name}</span>
+								<span className={styles.fileSize}>{(watchedFile.size / 1024).toFixed(1)} KB</span>
+							</div>
+							<button
+								type='button'
+								className={styles.removeFile}
+								onClick={() => setValue('file', undefined)}
+							>
+								✕
+							</button>
+						</div>
 					)}
 					{errors.file && <span className={styles.error}>{String(errors.file.message)}</span>}
 				</div>
-
-				{submitResult && <div className={styles.result}>{submitResult}</div>}
 
 				<div className={styles.actions}>
 					<Button
 						text='Отмена'
 						type='button'
 						onClick={handleClose}
-						className={styles.cancelButton}
 					/>
 					<Button
 						text={isSubmitting ? 'Отправка...' : 'Создать пост'}
 						type='submit'
+						variant='primary'
 						disabled={isSubmitting}
-						className={styles.submitButton}
 					/>
+					{submitResult && <div className={styles.result}>{submitResult}</div>}
 				</div>
 			</form>
-		</>
+		</div>
 	);
 };
