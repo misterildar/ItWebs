@@ -60,9 +60,7 @@ export const Modal = ({ children, isOpen, onClose, className }: ModalProps) => {
 				className={styles.close}
 				onClick={onClose}
 				aria-label='Закрыть модальное окно'
-			>
-				&times;
-			</button>
+			/>
 
 			{children}
 		</dialog>

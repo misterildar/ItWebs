@@ -68,7 +68,6 @@ export const FormModal = () => {
 	return (
 		<>
 			<h2 className={styles.title}>Создать новый пост</h2>
-
 			<form
 				onSubmit={handleSubmit(onSubmit)}
 				className={styles.form}
@@ -84,7 +83,6 @@ export const FormModal = () => {
 						id='title'
 						type='text'
 						placeholder='Введите заголовок поста'
-						className={styles.input}
 						{...register('title')}
 					/>
 					{errors.title && <span className={styles.error}>{String(errors.title.message)}</span>}
@@ -100,7 +98,6 @@ export const FormModal = () => {
 					<Input
 						id='file'
 						type='file'
-						className={styles.input}
 						onChange={handleFileChange}
 					/>
 					{watchedFile && (

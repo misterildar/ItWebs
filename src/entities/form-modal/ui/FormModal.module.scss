@@ -1,18 +1,8 @@
 @use '@/styles/variables' as *;
 
-.formModal {
-	// padding: 24px;
-	// max-width: 500px;
-	// width: 100%;
-	// border-radius: 8px;
-	// box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-}
-
 .title {
-	margin: 0 0 24px 0;
-	font-size: 24px;
-	font-weight: 600;
-	color: #333;
+	color: $dark-blue;
+	margin-bottom: 40px;
 	text-align: center;
 }
 
@@ -32,36 +22,18 @@
 .label {
 	font-size: 14px;
 	font-weight: 500;
-	color: #555;
-}
-
-.input {
-	padding: 12px;
-	border: 2px solid #e1e5e9;
-	border-radius: 6px;
-	font-size: 16px;
-	transition: border-color 0.2s ease;
-
-	&:focus {
-		outline: none;
-		border-color: #007bff;
-	}
-
-	&:disabled {
-		background-color: #f8f9fa;
-		cursor: not-allowed;
-	}
+	color: $gray-950;
 }
 
 .fileInfo {
 	margin: 8px 0 0 0;
 	font-size: 14px;
-	color: #666;
+	color: $gray-950;
 	font-style: italic;
 }
 
 .error {
-	color: #dc3545;
+	color: $red;
 	font-size: 12px;
 	margin-top: 4px;
 	display: block;
@@ -86,8 +58,8 @@
 
 .cancelButton {
 	padding: 12px 24px;
-	background-color: #6c757d;
-	color: white;
+	background-color: $gray-900;
+	color: $white;
 	border: none;
 	border-radius: 6px;
 	cursor: pointer;
@@ -96,14 +68,14 @@
 	transition: background-color 0.2s ease;
 
 	&:hover:not(:disabled) {
-		background-color: #5a6268;
+		background-color: $gray-950;
 	}
 }
 
 .submitButton {
 	padding: 12px 24px;
-	background-color: #007bff;
-	color: white;
+	background-color: $blue;
+	color: $white;
 	border: none;
 	border-radius: 6px;
 	cursor: pointer;
@@ -112,11 +84,11 @@
 	transition: background-color 0.2s ease;
 
 	&:hover:not(:disabled) {
-		background-color: #0056b3;
+		background-color: $dark-blue;
 	}
 
 	&:disabled {
-		background-color: #6c757d;
+		background-color: $gray-950;
 		cursor: not-allowed;
 	}
 }

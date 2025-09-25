@@ -45,7 +45,30 @@
 
 	&:hover {
 		background-color: $dark-blue;
-		color: $white;
+
+		&::before,
+		&::after {
+			background-color: $white;
+		}
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		width: 24px;
+		height: 3px;
+		background-color: $gray-950;
+		border-radius: 2px;
+		transition: background-color 0.3s ease-in-out;
+	}
+
+	&::before {
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-45deg);
 	}
 }
 
