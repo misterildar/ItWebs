@@ -1,2 +1,2 @@
-export { api } from './api';
+export { storeApi, jsonplaceholderApi } from './client';
 export { httpClient } from './httpClient';

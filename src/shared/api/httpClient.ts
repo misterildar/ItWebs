@@ -1,4 +1,4 @@
-import { api } from './api';
+import { storeApi } from './client';
 import { AxiosRequestConfig } from 'axios';
 import { HttpMethod } from '@/shared/model/types';
 
@@ -9,7 +9,7 @@ export const httpClient = async <T>(
 	config?: AxiosRequestConfig & { signal?: AbortSignal }
 ): Promise<T> => {
 	try {
-		const response = await api.request<T>({
+		const response = await storeApi.request<T>({
 			method,
 			url,
 			data,
